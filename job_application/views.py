@@ -1,8 +1,9 @@
+from django.contrib import messages
+from django.core.mail import EmailMessage
 from django.shortcuts import render
 
 from .forms import ApplicationForm
 from .models import Form
-from django.contrib import messages
 
 
 def index(request):
@@ -22,6 +23,21 @@ def index(request):
                 date=date,
                 occupation=occupation,
             )
+
+            message_body = (
+                f"Thank you for your submission, {first_name}. \n"
+                f"Here are your data that has been submitted \n"
+                f"First Name: {first_name}\n"
+                f"Last Name: {last_name}\n"
+                f"Available start date: {date}\n"
+                f"Occupation: {occupation.capitalize()}\n"
+                f"We will contact you soon!"
+            )
+            email_message = EmailMessage(
+                "Form submission confirmation", message_body, to=[email]
+            )
+            email_message.send()
+
             messages.success(
                 request,
                 "Form submitted successfully. We will contact you soon. Thank you!",

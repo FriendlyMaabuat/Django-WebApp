@@ -43,3 +43,6 @@ def index(request):
                 "Form submitted successfully. We will contact you soon. Thank you!",
             )
     return render(request, "index.html")
+
+def about(request):
+    return render(request, "about.html")

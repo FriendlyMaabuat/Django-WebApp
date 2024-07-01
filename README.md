@@ -26,8 +26,8 @@ This project is a web application built with Django that allows users to submit 
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/job-application-form.git
-    cd job-application-form
+    git clone https://github.com/FriendlyMaabuat/Django-WebApp
+    cd Django-WebApp
     ```
 
 2. Create a virtual environment and activate it:
